@@ -13,7 +13,7 @@
       <runner id="RUNNER_5" name="test-build-step" type="simpleRunner">
         <parameters>
           <param name="script.content"><![CDATA[#! /bin/sh
-echo 'hello world!']]></param>
+echo 'hello shayne!']]></param>
           <param name="use.custom.script" value="true" />
         </parameters>
       </runner>
