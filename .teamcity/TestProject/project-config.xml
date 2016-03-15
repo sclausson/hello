@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="51758f3c-e603-4157-a6b7-23e53d3f183c" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/9.0/project-config.xsd">
-  <name>hello-project</name>
+  <name>test-project</name>
   <parameters />
   <cleanup />
 </project>
