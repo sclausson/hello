@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<build-type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" uuid="54945200-5292-46d8-ad0e-e080f958c44c" xsi:noNamespaceSchemaLocation="http://www.jetbrains.com/teamcity/schemas/9.0/project-config.xsd">
+  <name>test-build-config</name>
+  <description />
+  <settings>
+    <options>
+      <option name="buildNumberPattern" value="test-%build.counter%" />
+    </options>
+    <parameters>
+      <param name="test-parameter" value="foo" />
+    </parameters>
+    <build-runners>
+      <runner id="RUNNER_5" name="test-build-step" type="simpleRunner">
+        <parameters>
+          <param name="script.content"><![CDATA[#! /bin/sh
+echo 'hello world!']]></param>
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+    </build-runners>
+    <vcs-settings>
+      <vcs-entry-ref root-id="TestProject_TestGitVcsRoot" />
+    </vcs-settings>
+    <requirements />
+    <build-triggers>
+      <build-trigger id="vcsTrigger" type="vcsTrigger">
+        <parameters>
+          <param name="groupCheckinsByCommitter" value="true" />
+          <param name="perCheckinTriggering" value="true" />
+          <param name="quietPeriodMode" value="DO_NOT_USE" />
+        </parameters>
+      </build-trigger>
+    </build-triggers>
+    <build-extensions>
+      <extension id="ruby.env.configurator" type="ruby.env.configurator">
+        <parameters>
+          <param name="ui.ruby.configurator.fail.build.if.interpreter.not.found" value="true" />
+          <param name="ui.ruby.configurator.rbenv.file.path" value=".rbenv-version" />
+          <param name="ui.ruby.configurator.rvm.gemset.create.if.non.exists" value="true" />
+          <param name="ui.ruby.configurator.rvm.path" value="%env.rvm_path%" />
+          <param name="ui.ruby.configurator.rvm.rvmrc.path" value=".rvmrc" />
+          <param name="ui.ruby.configurator.rvm.sdk.name" value="system" />
+          <param name="ui.ruby.configurator.use.rvm" value="manual" />
+        </parameters>
+      </extension>
+      <extension id="jetbrains.agent.free.space" type="jetbrains.agent.free.space">
+        <parameters>
+          <param name="free-space-work" value="100mb" />
+        </parameters>
+      </extension>
+    </build-extensions>
+    <cleanup />
+  </settings>
+</build-type>
+
